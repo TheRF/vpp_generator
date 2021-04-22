@@ -5,12 +5,25 @@
     <meta name="description" content="Truns a VPP request into reality">
   </head>
   <body>
-    <textarea name="requestfield" rows=7 cols=80></textarea>
+    <textarea name="requestfield" rows=7 cols=50></textarea>
     <br>
-    <input type="checkbox" name="debug">
+     <script type="text/javascript">
+      function ShowHideP(chkPara) {
+        var pDeb = document.getElementById("debugPara");
+        pDeb.style.display = chkPara.checked ? "block" : "none";
+      }
+    </script>
+    <script type="text/javascript">
+      function SetDebugText(chkPara) {
+        var pDeb = document.getElementById("debugPara");
+        pDeb.innerText = "Test";
+      }
+    </script>
+    <button class="button btnGenerate" onclick="SetDebugText(self)">Generate</button>
+    <button class="button btnCopyToClip" style="display: none">Copy to Clipboard</button>
+    <br>
+    <input type="checkbox" id="debug" name="debug" onclick="ShowHideP(this)">
     <label for="debug">Show debug information</label><br>
-    <button class="button btnGenerate">Generate</button>
-    <p id="debugPara"></p>
-    <button class="button btnCopyToClip">Copy to Clipboard</button>
+    <p id="debugPara" style="display: none">...Debug Field...</p>
   </body>
 </html>
