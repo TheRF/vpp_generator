@@ -7,23 +7,13 @@
   <body>
     <textarea name="requestfield" rows=7 cols=50></textarea>
     <br>
-     <script type="text/javascript">
-      function ShowHideP(chkPara) {
-        var pDeb = document.getElementById("debugPara");
-        pDeb.style.display = chkPara.checked ? "block" : "none";
-      }
-    </script>
-    <script type="text/javascript">
-      function SetDebugText(chkPara) {
-        var pDeb = document.getElementById("debugPara");
-        pDeb.innerText = "Test";
-      }
-    </script>
     <button class="button btnGenerate" onclick="SetDebugText(self)">Generate</button>
     <button class="button btnCopyToClip" style="display: none">Copy to Clipboard</button>
     <br>
     <input type="checkbox" id="debug" name="debug" onclick="ShowHideP(this)">
     <label for="debug">Show debug information</label><br>
     <p id="debugPara" style="display: none">...Debug Field...</p>
+    <script src="./src/ui.js"></script>
+    <script src="./src/gen.js"></script>
   </body>
 </html>
