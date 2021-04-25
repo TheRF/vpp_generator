@@ -5,7 +5,16 @@
     <meta name="description" content="Truns a VPP request into reality">
   </head>
   <body>
-    <textarea name="requestfield" rows=7 cols=50></textarea>
+    <table>
+      <tr>
+        <td>
+          <textarea name="rqfield" id="taLeft" rows=7 cols=35></textarea>
+        </td>
+        <td>
+          <textarea name="rqfieldpair" id="taRight" rows=7 cols=35></textarea>
+        </td>
+      </tr>
+    </table>
     <br>
     <button class="button btnGenerate" onclick="SetDebugText(self)">Generate</button>
     <button class="button btnCopyToClip" style="display: none">Copy to Clipboard</button>
