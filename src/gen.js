@@ -1,3 +1,4 @@
+///templates
 //Request template
 const tName = ["Name"]
 const tPkm = ["Pokémon", "Pokemon"];
@@ -20,8 +21,38 @@ const tLvlMax2 = "Level 100 @ _";
 const tShiny = "Shiny: _";
 const tPoints = "Points: _";
 
-//internal structure
-const stPokemon = { "basePkm":"", "finalPkm":"", "startCount":0, "hatchCount":0, "endCount":0, "shiny":"No", "points":0 };
+///key words for data structures
+//pkm data
+const stSpecies = "species";
+const stType1 = "type1";
+const stType2 = "type2";
+const stBaseform = "baseform"; //first stage evo
+const stCategory = "category"; //normal, legendary, ub, ...
+
+//point association
+const stTagTeam = "tagteam";
+const stLegend = "legend";
+const stUb = "ub";
+const stPair = "pair"; //pairs and sets have different values
+const stSet = "set";
+const stUnown = "unown";
+const stMega = "mega";
+const stRegional = "regional";
+const stDmax = "dmax";
+
+//post association
+const stClub = "club"; //number of post reduction
+const stSeasonal = "seasonal";
+//stPair
+//stSet
+//...
+
+//seasonal stuff
+
+//...
+
+///internal structure
+//const stPokemon = { "basePkm":"", "finalPkm":"", "startCount":0, "hatchCount":0, "endCount":0, "shiny":"No", "points":0 };
 
 const stDelim = ":"
 
@@ -39,7 +70,7 @@ function SplitLine(sLine, sDelim) {
   for (var i = slLine.length - 1; i >= 0; i--) {
     slLine[i] = slLine[i].trim();
   }
-  
+
   return slLine;
 }
 
@@ -52,7 +83,7 @@ function FillStruct(sText) {
   for (var i = slLine.length - 1; i >= 0; i--) {
     slLine[i] = slLine[i].trim();
   }
-  
+
   return slLine;
 }
 
