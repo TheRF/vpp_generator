@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="vpp_generator.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="11"/>
+        <UsageCount Value="22"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="dlgmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DlgMain"/>
+        <CursorPos X="54" Y="20"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="dlgmain.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="31"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="vppconsts.pas"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="5" Y="74"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="vpp_generator.lpi"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="45"/>
+        <CursorPos X="51" Y="61"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="vppgen.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="64" Y="11"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="vppstruct.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="25"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+    </Units>
+    <JumpHistory Count="16" HistoryIndex="15">
+      <Position1>
+        <Filename Value="dlgmain.pas"/>
+        <Caret Line="20" Column="54"/>
+      </Position1>
+      <Position2>
+        <Filename Value="vppconsts.pas"/>
+        <Caret Line="69" TopLine="22"/>
+      </Position2>
+      <Position3>
+        <Filename Value="vppconsts.pas"/>
+        <Caret Line="2" Column="27"/>
+      </Position3>
+      <Position4>
+        <Filename Value="vppconsts.pas"/>
+        <Caret Line="54" Column="56" TopLine="36"/>
+      </Position4>
+      <Position5>
+        <Filename Value="vppconsts.pas"/>
+        <Caret Line="74" Column="5" TopLine="41"/>
+      </Position5>
+      <Position6>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="6" Column="36"/>
+      </Position6>
+      <Position7>
+        <Filename Value="vppgen.pas"/>
+        <Caret Column="13"/>
+      </Position7>
+      <Position8>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="6"/>
+      </Position8>
+      <Position9>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="48" Column="48" TopLine="38"/>
+      </Position9>
+      <Position10>
+        <Filename Value="vppgen.pas"/>
+      </Position10>
+      <Position11>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="115" Column="10" TopLine="87"/>
+      </Position11>
+      <Position12>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="3" Column="33"/>
+      </Position12>
+      <Position13>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="2" Column="33"/>
+      </Position13>
+      <Position14>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="12" Column="61"/>
+      </Position14>
+      <Position15>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="10" Column="9"/>
+      </Position15>
+      <Position16>
+        <Filename Value="vppgen.pas"/>
+        <Caret Line="14" Column="6"/>
+      </Position16>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,106 @@
+object Form1: TForm1
+  Left = 435
+  Height = 250
+  Top = 351
+  Width = 500
+  Caption = 'VPP Generator'
+  ClientHeight = 250
+  ClientWidth = 500
+  Constraints.MinHeight = 250
+  Constraints.MinWidth = 500
+  LCLVersion = '2.0.12.0'
+  object mmDebug: TMemo
+    Left = 0
+    Height = 120
+    Top = 130
+    Width = 500
+    Align = alClient
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 130
+    Top = 0
+    Width = 500
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 130
+    ClientWidth = 500
+    TabOrder = 1
+    object btnGenerate: TButton
+      Left = 176
+      Height = 25
+      Top = 32
+      Width = 75
+      Caption = 'Generate'
+      OnClick = btnGenerateClick
+      TabOrder = 0
+    end
+    object cbDebug: TCheckBox
+      Left = 176
+      Height = 21
+      Top = 80
+      Width = 65
+      Caption = 'Debug'
+      TabOrder = 1
+    end
+    object Panel2: TPanel
+      Left = 330
+      Height = 130
+      Top = 0
+      Width = 170
+      Align = alRight
+      BevelOuter = bvNone
+      ClientHeight = 130
+      ClientWidth = 170
+      TabOrder = 2
+      object Label1: TLabel
+        Left = 0
+        Height = 15
+        Top = 0
+        Width = 170
+        Align = alTop
+        Alignment = taCenter
+        Caption = 'Label1'
+        ParentColor = False
+      end
+      object mmRight: TMemo
+        Left = 0
+        Height = 115
+        Top = 15
+        Width = 170
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+    object Panel3: TPanel
+      Left = 0
+      Height = 130
+      Top = 0
+      Width = 170
+      Align = alLeft
+      BevelOuter = bvNone
+      ClientHeight = 130
+      ClientWidth = 170
+      TabOrder = 3
+      object mmLeft: TMemo
+        Left = 0
+        Height = 115
+        Top = 15
+        Width = 170
+        Align = alClient
+        TabOrder = 0
+      end
+      object Label2: TLabel
+        Left = 0
+        Height = 15
+        Top = 0
+        Width = 170
+        Align = alTop
+        Alignment = taCenter
+        Caption = 'Label2'
+        ParentColor = False
+      end
+    end
+  end
+end
