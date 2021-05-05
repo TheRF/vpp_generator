@@ -30,61 +30,70 @@ begin
 end;
 
 //generate the template that gets posted
-procedure buildTemplate(const data: TVppInternal; const sl: TStringList;
-  const dataTagTeam: TVppInternal);
+function buildTemplate(const data, dataTagTeam: TVppInternal): TStringArray;
 begin
-  sl.Clear;
-
   //species
+  SetLength(result, 1);
   if data.vTagTeam<>nil then
-    sl.Add(format(sPkmResTT, [data.sBase, data.sName, data.iPost,
-      data.vTagTeam^.sName, data.vTagTeam^.iPost]))
+    result[High(result)] := format(sPkmResTT,
+      [data.sBase, data.sName, data.iPost,
+       data.vTagTeam^.sName, data.vTagTeam^.iPost])
   else
-    sl.Add(format(sPkmRes, [data.sBase, data.iPost]));
+    result[High(result)] := format(sPkmRes, [data.sBase, data.iPost]);
 
   //hatch
+  SetLength(result, Length(result)+1);
   if data.vTagTeam<>nil then
-    sl.Add(format(sHATCHTT, [data.sName, data.iPost + data.iHatch,
-      data.vTagTeam^.sName, data.vTagTeam^.iPost + data.vTagTeam^.iHatch]))
+    result[High(result)] := format(sHATCHTT,
+      [data.sName, data.iPost + data.iHatch,
+       data.vTagTeam^.sName, data.vTagTeam^.iPost + data.vTagTeam^.iHatch])
   else
-    sl.Add(format(sHATCH, [data.iPost + data.iHatch]));
+    result[High(result)] := format(sHATCH, [data.iPost + data.iHatch]);
 
   //complete
+  SetLength(result, Length(result)+1);
   if data.sSpecies=data.sBase then
   begin
     if data.vTagTeam<>nil then
-      sl.Add(format(sLvlMaxSingleTT, [data.sName, data.iPost + data.iPostsDone,
-        data.vTagTeam^.sName, data.vTagTeam^.iPost + data.vTagTeam^.iPostsDone]))
+      result[High(result)] := format(sLvlMaxSingleTT, [data.sName,
+        data.iPost + data.iPostsDone,
+        data.vTagTeam^.sName, data.vTagTeam^.iPost + data.vTagTeam^.iPostsDone])
     else
-      sl.Add(format(sLvlMaxSingle, [data.iPost + data.iPostsDone]));
+      result[High(result)] := format(sLvlMaxSingle,
+        [data.iPost + data.iPostsDone]);
   end
   else
   begin
     if data.vTagTeam<>nil then
-      sl.Add(format(sLvlMaxEvoTT, [data.sSpecies, data.sName, data.iPost + data.iPostsDone,
-        data.vTagTeam^.sName, data.vTagTeam^.iPost + data.vTagTeam^.iPostsDone]))
+      result[High(result)] := format(sLvlMaxEvoTT,
+        [data.sSpecies, data.sName, data.iPost + data.iPostsDone,
+         data.vTagTeam^.sName,
+         data.vTagTeam^.iPost + data.vTagTeam^.iPostsDone])
     else
-      sl.Add(format(sLvlMaxEvo, [data.sSpecies, data.iPost + data.iPostsDone]));
+      result[High(result)] := format(sLvlMaxEvo, [data.sSpecies,
+        data.iPost + data.iPostsDone]);
   end;
 
   //shiny
+  SetLength(result, Length(result)+1);
   if data.bShiny then
-    sl.Add(format(sSHINY, [sYES]))
+    result[High(result)] := format(sSHINY, [sYES])
   else
-    sl.Add(format(sSHINY, [sNO]));
+    result[High(result)] := format(sSHINY, [sNO]);
 
   //points
-  sl.Add(format(sPOINTS, [data.iPoints]));
+  SetLength(result, Length(result)+1);
+  result[High(result)] := format(sPOINTS, [data.iPoints]);
 end;
 
-procedure fillEntry(const slLine: TStringList; var stRet: TVppInternal);
+procedure fillEntry(const slLine: TStringArray; var stRet: TVppInternal);
 begin
   //TODO
 end;
 
 //build up the structure
 //return structure with sorted data
-function fillStruct(const slInput: TStringList;
+function fillStruct(const aInput: TStringArray;
   bClub: Boolean = false): TVppInternal;
 var
   stRet: TVppInternal;
@@ -94,42 +103,44 @@ var
 begin
   stRet.bClub := bClub;
 
+  setLength(aLines, 0);
   //split all the values of the lines
-  for i := 0 to slInput.Count-1 do
+  for i := 0 to High(aInput) do
   begin
-    splitLine(slInput[i], sDelim, aLine);
-    aLines := aLines + [aLine];
+    splitLine(aInput[i], sDelim, aLine);
+    SetLength(aLines, Length(aLines)+1);
+    aLines[High(aLines)] := aLine;
   end;
 
   //fill in the right property from request
-  for i := 0 to aLine.Count-1 do
+  for i := 0 to High(aLine) do
     fillEntry(aLine, stRet);
 
   //TODO: fill in from files
 
 
   result := stRet;
-end
+end;
 
-TStringList parseAll(const TStringList &slInputLeft,
-  const TStringList &slInputRight, bool bClub)
+function parseAll(const aInputLeft, aInputRight: TStringArray;
+  bClub: Boolean): TStringArray;
+var
+  stLeftSet, stRightSet: TVppInternal;
 begin
   //get the requests as structures
-  VppInternal stLeftSet = FillStruct(slInputLeft);
-  VppInternal stRightSet = FillStruct(slInputRight);
+  stLeftSet := FillStruct(aInputLeft, bClub);
+  stRightSet := FillStruct(aInputRight, bClub);
 
   //tag team?
-  if(stLeftSet.sTagTeam.length()>0 && slInputLeft.sTTeam.equals(stRightSet.sName)) then
+  if (Length(stLeftSet.sTTeam)>0) and
+    (stLeftSet.sTTeam=stRightSet.sName) then
   begin
-    stLeftSet.vTagTeam = &stRightSet;
-    stLeftSet.bClub = false;
-  end
+    stLeftSet.vTagTeam := @stRightSet;
+    stLeftSet.bClub := false;
+  end;
 
   //build output
-  TStringList vRet = buildTemplate(stLeftSet);
-
-  //return output
-  return vRet;
-end
+  result := buildTemplate(stLeftSet, stRightSet);
+end;
 
 end.
