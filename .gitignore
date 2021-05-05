@@ -1,5 +1,5 @@
 *.o
 *.ppu
 *.compiled
-./src/backup/
+src/backup/
 
