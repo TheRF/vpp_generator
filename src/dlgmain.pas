@@ -39,7 +39,7 @@ implementation
 {$R *.lfm}
 
 uses
-  Inifiles;
+  Inifiles, lcltype;
 
 { TVppGenForm }
 
@@ -68,9 +68,9 @@ begin
   iniConfig := TIniFile.Create(sIni);
   try
     Top := iniConfig.ReadInteger(APP_SEC, APP_TOP, Top);
-    Left := iniConfig.ReadInteger(APP_SEC, APP_LEFT, LEFT);
-    Width := iniConfig.ReadInteger(APP_SEC, APP_WIDTH, WIDTH);
-    Height := iniConfig.ReadInteger(APP_SEC, APP_HEIGHT, HEIGHT);
+    Left := iniConfig.ReadInteger(APP_SEC, APP_LEFT, Left);
+    Width := iniConfig.ReadInteger(APP_SEC, APP_WIDTH, Width);
+    Height := iniConfig.ReadInteger(APP_SEC, APP_HEIGHT, Height);
   finally
     FreeAndNil(iniConfig);
   end;
@@ -88,10 +88,13 @@ begin
 
   iniConfig := TIniFile.Create(sIni);
   try
+    //keep 4k monitors in mind
     iniConfig.WriteInteger(APP_SEC, APP_TOP, Top);
-    iniConfig.WriteInteger(APP_SEC, APP_LEFT, LEFT);
-    iniConfig.WriteInteger(APP_SEC, APP_WIDTH, WIDTH);
-    iniConfig.WriteInteger(APP_SEC, APP_HEIGHT, HEIGHT);
+    iniConfig.WriteInteger(APP_SEC, APP_LEFT, Left);
+    iniConfig.WriteInteger(APP_SEC, APP_WIDTH,
+      MulDiv(Width, 96, Screen.PixelsPerInch));
+    iniConfig.WriteInteger(APP_SEC, APP_HEIGHT,
+      MulDiv(Top, 96, Screen.PixelsPerInch));
   finally
     FreeAndNil(iniConfig);
   end;

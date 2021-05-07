@@ -1,8 +1,11 @@
+*
+!*.*
 *.o
 *.ppu
 *.compiled
 *.or
 *.exe
 *.ini
+*.obj
 src/backup/
 
