@@ -69,7 +69,7 @@ object VppGenForm: TVppGenForm
         Width = 340
         Align = alTop
         Alignment = taCenter
-        Caption = 'Label1'
+        Caption = 'Tag-Team:'
         ParentColor = False
         ParentFont = False
       end
@@ -110,7 +110,7 @@ object VppGenForm: TVppGenForm
         Width = 340
         Align = alTop
         Alignment = taCenter
-        Caption = 'Label2'
+        Caption = 'Request:'
         ParentColor = False
         ParentFont = False
       end
