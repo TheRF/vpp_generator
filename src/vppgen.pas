@@ -16,11 +16,8 @@ uses
 procedure splitLine(const sLine, sDelim: string;
   var slOut: TStringArray);
 var
-  iStart, iEnd: Integer;
-  var i: Integer;
+  i: Integer;
 begin
-  iStart := 0;
-  iEnd := 0;
   SetLength(slOut, 0);
 
   slOut := sLine.Split(sDelim);
@@ -30,10 +27,10 @@ begin
 end;
 
 //generate the template that gets posted
-function buildTemplate(const data, dataTagTeam: TVppInternal): TStringArray;
+function buildTemplate(const data: TVppInternal): TStringArray;
 begin
   //species
-  SetLength(result, 1);
+  result := [''];
   if data.vTagTeam<>nil then
     result[High(result)] := format(sPkmResTT,
       [data.sBase, data.sName, data.iPost,
@@ -103,7 +100,8 @@ var
 begin
   stRet.bClub := bClub;
 
-  setLength(aLines, 0);
+  aLines := [];
+  aLine := [];
   //split all the values of the lines
   for i := 0 to High(aInput) do
   begin
@@ -140,7 +138,7 @@ begin
   end;
 
   //build output
-  result := buildTemplate(stLeftSet, stRightSet);
+  result := buildTemplate(stLeftSet);
 end;
 
 end.

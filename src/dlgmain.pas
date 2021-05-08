@@ -44,25 +44,37 @@ uses
 { TVppGenForm }
 
 procedure TVppGenForm.btnGenerateClick(Sender: TObject);
-var
-  i: Integer;
+  function GetLinesFromMemo(const mm: TMemo): TStringArray;
+  var
+    s: string;
+  begin
+    result := [];
+
+    for s in mm.Lines do
+    begin
+      setLength(result, length(result)+1);
+      result[High(result)] := s;
+    end;
+  end;
+//var
+//  i: Integer;
 begin
   //Generate VPP
 
   //show debug stuff
   if cbDebug.Checked then
   begin
-    for i:=0 to slOutput.Count()-1 do
-    begin
-
-    end;
+    //for i:=0 to slOutput.Count()-1 do
+    //begin
+    //
+    //end;
   end;
 
   //show vpp
-  for i := 0 to slOutput.Count()-1 do
-  begin
-
-  end;
+  //for i := 0 to slOutput.Count()-1 do
+  //begin
+  //
+  //end;
 
 end;
 
