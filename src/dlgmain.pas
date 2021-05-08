@@ -44,8 +44,26 @@ uses
 { TVppGenForm }
 
 procedure TVppGenForm.btnGenerateClick(Sender: TObject);
+var
+  i: Integer;
 begin
-  //
+  //Generate VPP
+
+  //show debug stuff
+  if cbDebug.Checked then
+  begin
+    for i:=0 to slOutput.Count()-1 do
+    begin
+
+    end;
+  end;
+
+  //show vpp
+  for i := 0 to slOutput.Count()-1 do
+  begin
+
+  end;
+
 end;
 
 const

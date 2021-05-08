@@ -1,115 +1,118 @@
 object VppGenForm: TVppGenForm
-  Left = 870
-  Height = 501
-  Top = 702
-  Width = 1000
+  Left = 284
+  Height = 250
+  Top = 276
+  Width = 500
   Caption = 'VPP Generator'
-  ClientHeight = 501
-  ClientWidth = 1000
-  Constraints.MinHeight = 500
-  Constraints.MinWidth = 1000
-  DesignTimePPI = 192
+  ClientHeight = 250
+  ClientWidth = 500
+  Constraints.MinHeight = 250
+  Constraints.MinWidth = 500
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   LCLVersion = '2.0.12.0'
   object mmDebug: TMemo
     Left = 0
-    Height = 241
-    Top = 260
-    Width = 1000
+    Height = 120
+    Top = 130
+    Width = 500
     Align = alClient
     ParentFont = False
     TabOrder = 0
   end
   object Panel1: TPanel
     Left = 0
-    Height = 260
+    Height = 130
     Top = 0
-    Width = 1000
+    Width = 500
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 260
-    ClientWidth = 1000
+    ClientHeight = 130
+    ClientWidth = 500
     ParentFont = False
     TabOrder = 1
     object btnGenerate: TButton
-      Left = 352
-      Height = 50
-      Top = 64
-      Width = 150
+      Left = 176
+      Height = 25
+      Top = 32
+      Width = 75
       Caption = 'Generate'
       OnClick = btnGenerateClick
       ParentFont = False
       TabOrder = 0
     end
     object cbDebug: TCheckBox
-      Left = 352
-      Height = 36
-      Top = 160
-      Width = 108
+      Left = 176
+      Height = 21
+      Top = 80
+      Width = 65
       Caption = 'Debug'
       ParentFont = False
       TabOrder = 1
     end
     object Panel2: TPanel
-      Left = 660
-      Height = 260
+      Left = 330
+      Height = 130
       Top = 0
-      Width = 340
+      Width = 170
       Align = alRight
       BevelOuter = bvNone
-      ClientHeight = 260
-      ClientWidth = 340
+      ClientHeight = 130
+      ClientWidth = 170
       ParentFont = False
       TabOrder = 2
       object Label1: TLabel
-        Left = 0
-        Height = 32
-        Top = 0
-        Width = 340
+        Left = 3
+        Height = 15
+        Top = 3
+        Width = 164
         Align = alTop
         Alignment = taCenter
+        BorderSpacing.Around = 3
         Caption = 'Tag-Team:'
         ParentColor = False
         ParentFont = False
       end
       object mmRight: TMemo
-        Left = 0
-        Height = 228
-        Top = 32
-        Width = 340
+        Left = 5
+        Height = 102
+        Top = 23
+        Width = 160
         Align = alClient
+        BorderSpacing.Around = 5
         ParentFont = False
         TabOrder = 0
       end
     end
     object Panel3: TPanel
       Left = 0
-      Height = 260
+      Height = 130
       Top = 0
-      Width = 340
+      Width = 170
       Align = alLeft
       BevelOuter = bvNone
-      ClientHeight = 260
-      ClientWidth = 340
+      ClientHeight = 130
+      ClientWidth = 170
       ParentFont = False
       TabOrder = 3
       object mmLeft: TMemo
-        Left = 0
-        Height = 228
-        Top = 32
-        Width = 340
+        Left = 5
+        Height = 102
+        Top = 23
+        Width = 160
         Align = alClient
+        BorderSpacing.Around = 5
         ParentFont = False
         TabOrder = 0
       end
       object Label2: TLabel
-        Left = 0
-        Height = 32
-        Top = 0
-        Width = 340
+        Left = 3
+        Height = 15
+        Top = 3
+        Width = 164
         Align = alTop
         Alignment = taCenter
+        BorderSpacing.Around = 3
         Caption = 'Request:'
         ParentColor = False
         ParentFont = False
