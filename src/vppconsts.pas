@@ -1,5 +1,7 @@
 unit vppconsts;
 
+{$mode DELPHI}{$H+}
+
 interface
 ///templates
 //Request template
@@ -68,6 +70,9 @@ const sDelim = ':';
 //this is where the actual data is found
 const sVpp = '../data/vpp.json';
 const sMeta = '../data/meta.json';
+
+//debug stuff
+const sDebugIdent = '>';
 
 implementation
 

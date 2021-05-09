@@ -1,5 +1,7 @@
 unit vppstruct;
 
+{$mode DELPHI}{$H+}
+
 interface
 
 type

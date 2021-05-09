@@ -1,6 +1,6 @@
 program vpp_generator;
 
-{$mode objfpc}{$H+}
+{$mode DELPHI}{$H+}
 
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}

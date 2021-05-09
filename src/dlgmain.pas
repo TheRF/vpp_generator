@@ -1,6 +1,6 @@
 unit DlgMain;
 
-{$mode objfpc}{$H+}
+{$mode DELPHI}{$H+}
 
 interface
 
@@ -14,6 +14,7 @@ type
   TVppGenForm = class(TForm)
     btnGenerate: TButton;
     cbDebug: TCheckBox;
+    cbClub: TCheckBox;
     Label1: TLabel;
     Label2: TLabel;
     mmDebug: TMemo;
@@ -39,43 +40,54 @@ implementation
 {$R *.lfm}
 
 uses
-  Inifiles, lcltype;
+  Inifiles, StrUtils, lcltype, vppgen, vppconsts;
 
 { TVppGenForm }
 
 procedure TVppGenForm.btnGenerateClick(Sender: TObject);
-  function GetLinesFromMemo(const mm: TMemo): TStringArray;
+  function GetLinesFromMemo(const mm: TMemo): TStringList;
   var
     s: string;
   begin
-    result := [];
+    result := TStringList.Create;
 
     for s in mm.Lines do
-    begin
-      setLength(result, length(result)+1);
-      result[High(result)] := s;
-    end;
+      result.Add(s);
   end;
-//var
-//  i: Integer;
+var
+  i: Integer;
+  slLeft, slRight, slOut: TStringList;
 begin
+  mmDebug.Clear;
+
   //Generate VPP
+  slLeft := GetLinesFromMemo(mmLeft);
+  slRight := GetLinesFromMemo(mmRight);
+  try
+    slOut := parseAll(slLeft, slRight, cbClub.Checked);
+    try
+      //show debug stuff
+      if cbDebug.Checked then
+      begin
+        mmDebug.Lines.Add('Debug Information:');
+        for i:=0 to slOut.Count-1 do
+          if StartsStr(sDebugIdent, slOut[i]) then
+            mmDebug.Lines.Add(slOut[i]);
+        mmDebug.Lines.Add('');
+      end;
 
-  //show debug stuff
-  if cbDebug.Checked then
-  begin
-    //for i:=0 to slOutput.Count()-1 do
-    //begin
-    //
-    //end;
+      //show vpp
+      mmDebug.Lines.Add('VPP Information:');
+      for i := 0 to slOut.Count-1 do
+        if not StartsStr(sDebugIdent, slOut[i]) then
+          mmDebug.Lines.Add(slOut[i]);
+    finally
+      FreeAndNil(slOut);
+    end;
+  finally
+    FreeAndNil(slRight);
+    FreeAndNil(slLeft);
   end;
-
-  //show vpp
-  //for i := 0 to slOutput.Count()-1 do
-  //begin
-  //
-  //end;
-
 end;
 
 const
