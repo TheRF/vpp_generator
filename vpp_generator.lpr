@@ -9,11 +9,11 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms,
   { you can add units after this }
-  DlgMain in 'src\DlgMain.pas',
-  vppconsts in 'src\vppconsts.pas',
-  vppgen in 'src\vppgen.pas',
-  vppstruct in 'src\vppstruct.pas',
-  jsontools in 'JsonTools\jsontools.pas'
+  DlgMain in 'src/DlgMain.pas',
+  vppconsts in 'src/vppconsts.pas',
+  vppgen in 'src/vppgen.pas',
+  vppstruct in 'src/vppstruct.pas',
+  jsontools in 'JsonTools/jsontools.pas'
   ;
 
 {$R *.res}

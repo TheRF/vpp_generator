@@ -1,5 +1,6 @@
 *
 !*.*
+!LICENSE
 *.o
 *.ppu
 *.compiled
@@ -8,5 +9,7 @@
 *.ini
 *.obj
 *.rsj
+*.a
+*.rst
 src/backup/
 
