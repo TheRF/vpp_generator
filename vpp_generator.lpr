@@ -12,7 +12,8 @@ uses
   DlgMain in 'src\DlgMain.pas',
   vppconsts in 'src\vppconsts.pas',
   vppgen in 'src\vppgen.pas',
-  vppstruct in 'src\vppstruct.pas'
+  vppstruct in 'src\vppstruct.pas',
+  jsontools in 'JsonTools\jsontools.pas'
   ;
 
 {$R *.res}

@@ -3,12 +3,12 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="vpp_generator.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="63" Y="14"/>
+        <CursorPos X="41" Y="16"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -44,9 +44,9 @@
       <Unit4>
         <Filename Value="src/vppconsts.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="52"/>
-        <CursorPos X="13" Y="66"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="46"/>
+        <CursorPos X="22" Y="61"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -62,9 +62,9 @@
         <Filename Value="src/vppgen.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="135"/>
-        <CursorPos X="21" Y="158"/>
+        <CursorPos X="15" Y="145"/>
         <UsageCount Value="20"/>
         <Bookmarks Count="1">
           <Item0 Y="35" ID="1"/>
@@ -74,13 +74,23 @@
       <Unit7>
         <Filename Value="src/vppstruct.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="7" Y="11"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="JsonTools/jsontools.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="JsonTools"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="1275"/>
+        <CursorPos X="10" Y="1292"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit8>
     </Units>
-    <JumpHistory Count="11" HistoryIndex="10">
+    <JumpHistory Count="13" HistoryIndex="12">
       <Position1>
         <Filename Value="src/vppgen.pas"/>
         <Caret Line="107" Column="28" TopLine="91"/>
@@ -124,6 +134,14 @@
         <Filename Value="src/dlgmain.pas"/>
         <Caret Line="63" Column="45" TopLine="37"/>
       </Position11>
+      <Position12>
+        <Filename Value="vpp_generator.lpr"/>
+        <Caret Line="16" Column="41"/>
+      </Position12>
+      <Position13>
+        <Filename Value="JsonTools/jsontools.pas"/>
+        <Caret Line="1369" Column="62" TopLine="1352"/>
+      </Position13>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

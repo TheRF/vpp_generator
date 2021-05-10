@@ -7,5 +7,6 @@
 *.exe
 *.ini
 *.obj
+*.rsj
 src/backup/
 
