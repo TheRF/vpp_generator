@@ -70,9 +70,8 @@ begin
       if cbDebug.Checked then
       begin
         mmDebug.Lines.Add('Debug Information:');
-        for i:=0 to slOut.Count-1 do
-          if StartsStr(sDebugIdent, slOut[i]) then
-            mmDebug.Lines.Add(slOut[i]);
+        for i:=0 to slDebug.Count-1 do
+          mmDebug.Lines.Add(slDebug[i]);
         mmDebug.Lines.Add('');
       end;
 

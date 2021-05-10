@@ -10,10 +10,18 @@ uses
 function parseAll(const slInputLeft, slInputRight: TStringList;
   bClub: Boolean): TStringList;
 
+var
+  slDebug: TStringList;
+
 implementation
 
 uses
   SysUtils, vppconsts, vppstruct;
+
+procedure dbMessage(const sMsg: string);
+begin
+  slDebug.Add(format('%s %s', [sDebugIdent, sMsg]));
+end;
 
 //split the line on the deliminator, ignoring whitespaces
 //returns array of split line
@@ -89,14 +97,67 @@ begin
 end;
 
 procedure fillEntry(const slLine: TStringList; var stRet: TVppInternal);
+  function IsEqual(const s1, s2: string): Boolean;
+  begin
+    result := lowercase(s1)=lowercase(s2);
+  end;
+
 var
   s: string;
 begin
-  //TODO
   if slLine.Count<2 then
     Exit;
 
-  //go through all the keywords
+  //Name
+  for s in slName do
+    if IsEqual(slLine[0], s) then
+    begin
+      stRet.sName:=slLine[1];
+      break;
+    end;
+
+  //Species
+  for s in slPkm do
+    if IsEqual(slLine[0], s) then
+    begin
+      stRet.sSpecies:=slLine[1];
+      break;
+    end;
+
+  //Tag Team
+  for s in slPkm do
+    if IsEqual(slLine[0], s) then
+    begin
+      stRet.sTTeam:=slLine[1];
+      break;
+    end;
+
+  //PostCount
+  for s in slPkm do
+    if IsEqual(slLine[0], s) then
+    begin
+      slLine[1] := StringReplace(slLine[1], ',', '', []);
+      slLine[1] := StringReplace(slLine[1], '.', '', []);
+      stRet.iPost:=StrToInt(slLine[1]);
+      break;
+    end;
+
+  //Hemisphere
+  for s in slPkm do
+    if IsEqual(slLine[0], s) then
+    begin
+      stRet.sHemi:=slLine[1];
+      break;
+    end;
+
+  //Rainbow Stone
+  for s in slPkm do
+    if IsEqual(slLine[0], s) then
+    begin
+      //some people put a '!' at the end so we just look if there is a 'yes'
+      stRet.bStone:=AnsiPos(lowercase(sYES), lowercase(slLine[1])>0;
+      break;
+    end;
 end;
 
 //build up the structure
@@ -122,7 +183,7 @@ begin
     for i := 0 to slLines.Count-1 do
       fillEntry(slLines.Objects[i] as TStringList, stRet);
 
-    //TODO: fill in from files
+    //TODO: fill in from json files
 
 
 
@@ -138,6 +199,9 @@ function parseAll(const slInputLeft, slInputRight: TStringList;
 var
   stLeftSet, stRightSet: TVppInternal;
 begin
+  slDebug.Clear;
+  dbMessage('---start debug information---');
+
   //get the requests as structures
   stLeftSet := FillStruct(slInputLeft, bClub);
   stRightSet := FillStruct(slInputRight, bClub);
@@ -148,10 +212,18 @@ begin
   begin
     stLeftSet.vTagTeam := @stRightSet;
     stLeftSet.bClub := false;
+    dbMessage('club membership ignored!');
   end;
 
   //build output
   result := buildTemplate(stLeftSet);
+
+  dbMessage('---end debug information---');
 end;
+
+initialization
+  slDebug := TStringList.Create;
+finalization
+  FreeAndNil(slDebug);
 
 end.
