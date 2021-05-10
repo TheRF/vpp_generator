@@ -7,8 +7,13 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, DlgMain, vppconsts, vppgen, vppstruct
-  { you can add units after this };
+  Forms,
+  { you can add units after this }
+  DlgMain in 'src\DlgMain.pas',
+  vppconsts in 'src\vppconsts.pas',
+  vppgen in 'src\vppgen.pas',
+  vppstruct in 'src\vppstruct.pas'
+  ;
 
 {$R *.res}
 

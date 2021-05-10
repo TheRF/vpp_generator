@@ -155,7 +155,7 @@ begin
     if IsEqual(slLine[0], s) then
     begin
       //some people put a '!' at the end so we just look if there is a 'yes'
-      stRet.bStone:=AnsiPos(lowercase(sYES), lowercase(slLine[1])>0;
+      stRet.bStone:=Pos(lowercase(sYES), lowercase(slLine[1]))>0;
       break;
     end;
 end;
